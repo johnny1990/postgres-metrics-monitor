@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="PgMonitor.Api/PgMonitor.Api.csproj" />
+  <Project Path="PgMonitor.Application/PgMonitor.Application.csproj" />
+  <Project Path="PgMonitor.Domain/PgMonitor.Domain.csproj" />
+  <Project Path="PgMonitor.Infrastructure/PgMonitor.Infrastructure.csproj" />
+  <Project Path="PgMonitor.Persistence/PgMonitor.Persistence.csproj" />
+  <Project Path="PgMonitor.Tests/PgMonitor.Tests.csproj" Id="a7050f77-c916-4e5f-9ccc-7c3aa3a12ab2" />
+  <Project Path="PgMonitor.Worker/PgMonitor.Worker.csproj" Id="fb0d3704-468e-48d0-9b69-cde6dc7d20c5" />
+</Solution>

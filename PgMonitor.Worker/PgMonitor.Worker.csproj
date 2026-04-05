@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-PgMonitor.Worker-6d82c84f-aa05-46a0-965d-f9469a8914ca</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="14.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PgMonitor.Application\PgMonitor.Application.csproj" />
+    <ProjectReference Include="..\PgMonitor.Infrastructure\PgMonitor.Infrastructure.csproj" />
+  </ItemGroup>
+</Project>
