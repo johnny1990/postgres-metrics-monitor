@@ -19,29 +19,29 @@ builder.Services.AddSwaggerGen(options =>
 {
 });
 
+// Configure MediatR to register handlers from the assembly containing SaveMetricsCommand
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(SaveMetricsCommand).Assembly));
 
+// Register repositories
 builder.Services.AddSingleton<ISystemMetricsCollectorRepository, SystemMetricsCollectorRepository>();
 builder.Services.AddScoped<IMetricsRepository, MetricsRepository>();
 
+// Configure DbContext to use PostgreSQL connection string from configuration
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-}
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+// // Configure the HTTP request pipeline & Enable Swagger in development environment
 if (app.Environment.IsDevelopment())
 {
+    app.MapOpenApi();
     app.UseSwagger();
     app.UseSwaggerUI();
 }
