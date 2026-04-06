@@ -15,6 +15,7 @@ namespace PgMonitor.Api.Controllers
             _mediator = mediator;
         }
 
+        //endpoint to get the latest metrics
         [HttpGet("latest")]
         public async Task<IActionResult> GetLatest()
         {
@@ -25,6 +26,8 @@ namespace PgMonitor.Api.Controllers
 
             return Ok(result);
         }
+
+        //endpoint to get historical metrics, with an optional count parameter (default 50)
 
         [HttpGet("history")]
         public async Task<IActionResult> GetHistory([FromQuery] int count = 50)

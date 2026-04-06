@@ -10,6 +10,7 @@ namespace PgMonitor.Infrastructure.Repositories
         private DateTime _previousCheckTime = DateTime.UtcNow;
         private bool _isFirstRun = true;
 
+        // Collects system metrics (CPU and Memory usage)
         public Task<SystemMetricsDto> GetMetricsAsync()
         {
             double totalCpuMs = 0;

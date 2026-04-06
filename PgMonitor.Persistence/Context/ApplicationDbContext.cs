@@ -14,6 +14,8 @@ namespace PgMonitor.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Configure the DatabaseMetric entity
+
             modelBuilder.Entity<DatabaseMetric>(entity =>
             {
                 entity.HasKey(x => x.Id);

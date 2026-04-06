@@ -21,6 +21,7 @@ namespace PgMonitor.Worker
             _serviceProvider = serviceProvider;
         }
 
+        // Metrics collection and saving loop
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation("Metrics Worker started.");

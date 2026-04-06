@@ -8,19 +8,19 @@ using PgMonitor.Worker;
 
 var builder = Host.CreateApplicationBuilder(args);
 
-// 🔹 DbContext
+// DbContext  Configure PostgreSQL connection
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql("Host=localhost;Port=5432;Database=pgmonitor;Username=postgres;Password=postgres"));
 
-// 🔹 MediatR
+// Configure MediatR  SaveMetricsCommand command
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(SaveMetricsCommand).Assembly));
 
-// 🔹 Services
+// Register repositories
 builder.Services.AddSingleton<ISystemMetricsCollectorRepository, SystemMetricsCollectorRepository>();
 builder.Services.AddScoped<IMetricsRepository, MetricsRepository>();
 
-// 🔹 Worker
+//  Worker service to collect and save metrics periodically
 builder.Services.AddHostedService<MetricsWorker>();
 
 var host = builder.Build();

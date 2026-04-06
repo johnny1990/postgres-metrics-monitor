@@ -14,12 +14,14 @@ namespace PgMonitor.Infrastructure.Repositories
             _context = context;
         }
 
+        // Adds a new metric to the database
         public async Task AddAsync(DatabaseMetric metric)
         {
             _context.DatabaseMetrics.Add(metric);
             await _context.SaveChangesAsync();
         }
 
+        // Retrieves the latest metric from the database
         public async Task<DatabaseMetric?> GetLatestAsync()
         {
             return await _context.DatabaseMetrics
@@ -27,6 +29,7 @@ namespace PgMonitor.Infrastructure.Repositories
                 .FirstOrDefaultAsync();
         }
 
+        // Retrieves a list of the most recent metrics, limited by the specified count
         public async Task<List<DatabaseMetric>> GetHistoryAsync(int count)
         {
             return await _context.DatabaseMetrics
