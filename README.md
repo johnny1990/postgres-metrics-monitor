@@ -57,7 +57,8 @@ Set multiple startup projects:
 
 PgMonitor.Api → Start
 PgMonitor.Worker → Start
-📡 API Endpoints
+
+    API Endpoints
 🔹 Get latest metric
 GET /api/Metrics/latest
 
@@ -79,19 +80,18 @@ Direct process monitoring may result in Access Denied errors
 The application safely skips inaccessible processes to ensure stability
    
    Testing
-
 Unit tests done cover:
 
-CQRS handlers
-Repository behavior
-Metrics processing logic
+-CQRS handlers
+-Repository behavior
+-Metrics processing logic
 
    Design Decisions
-CQRS pattern for separation of concerns
-MediatR for request handling
-Background worker for continuous data collection
-Repository pattern for abstraction
-Defensive programming for OS-level monitoring limitations
+-CQRS pattern for separation of concerns
+-MediatR for request handling
+-Background worker for continuous data collection
+-Repository pattern for abstraction
+-Defensive programming for OS-level monitoring limitations
 
    Repository
 https://github.com/johnny1990/postgres-metrics-monitor
