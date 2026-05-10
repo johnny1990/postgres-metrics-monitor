@@ -15,7 +15,11 @@ export class MetricsService {
     return this.http.get<Metric>(`${API.BASE_URL}/latest`);
   }
 
-  getHistory(count: number = 20): Observable<Metric[]> {
-    return this.http.get<Metric[]>(`${API.BASE_URL}/history/${count}`);
-  }
+  // getHistory(count: number = 20): Observable<Metric[]> {
+  //   return this.http.get<Metric[]>(`${API.BASE_URL}/history/${count}`);
+  // }
+
+  getHistory(): Observable<Metric[]> {
+  return this.http.get<Metric[]>(`${API.BASE_URL}/history`);
+}
 }

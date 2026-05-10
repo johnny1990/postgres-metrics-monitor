@@ -24,6 +24,19 @@ export class DashboardComponent implements OnInit {
     interval(5000).subscribe(() => {
       this.loadData();
     });
+
+    this.metricsService.getLatest().subscribe({
+    next: (data) => {
+      this.latestMetric = data;
+    }
+  });
+
+  this.metricsService.getHistory().subscribe({
+    next: (data) => {
+      this.history = data;
+      console.log(this.history);
+    }
+  });
   }
 
   loadData(): void {
@@ -33,7 +46,7 @@ export class DashboardComponent implements OnInit {
       }
     });
 
-    this.metricsService.getHistory(20).subscribe({
+    this.metricsService.getHistory().subscribe({
       next: result => {
         this.history = result;
       }
