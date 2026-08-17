@@ -1,8 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using PgMonitor.Application.Commands;
 using PgMonitor.Infrastructure.Contracts;
 using PgMonitor.Infrastructure.Repositories;
-using System.Reflection;
-using Microsoft.EntityFrameworkCore;
 using PgMonitor.Persistence.Context;
 
 var builder = WebApplication.CreateBuilder(args);
